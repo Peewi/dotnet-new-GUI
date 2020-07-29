@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -139,13 +140,12 @@ namespace dotnet_new_GUI
 
 		private void BrowseBtn_Click(object sender, RoutedEventArgs e)
 		{
-			//TODO: Proper folder select
-			OpenFileDialog foo = new OpenFileDialog();
-			foo.FileOk += (sender, e) =>
+			VistaFolderBrowserDialog folderDiag = new VistaFolderBrowserDialog();
+			folderDiag.ShowDialog();
+			if (!string.IsNullOrWhiteSpace(folderDiag.SelectedPath))
 			{
-				BrowseTxt.Text = foo.FileName;
-			};
-			foo.ShowDialog();
+				BrowseTxt.Text = folderDiag.SelectedPath;
+			}
 		}
 
 		private void Run_Click(object sender, RoutedEventArgs e)
