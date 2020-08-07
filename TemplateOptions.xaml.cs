@@ -150,7 +150,13 @@ namespace dotnet_new_GUI
 
 		private void Run_Click(object sender, RoutedEventArgs e)
 		{
-			if (Parent is MainWindow mw)
+			bool runNow = true;
+			if (string.IsNullOrWhiteSpace(BrowseTxt.Text))
+			{
+				MessageBoxResult result = MessageBox.Show("No output folder specified. Do you want to continue anyway?", "Continue?", MessageBoxButton.YesNo);
+				runNow = result == MessageBoxResult.Yes;
+			}
+			if (runNow && Parent is MainWindow mw)
 			{
 				mw.Content = new Results(GenerateCommand());
 			}
