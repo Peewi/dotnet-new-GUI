@@ -9,9 +9,12 @@
 	  d:Background="White"
       Title="Results">
 
-    <Grid>
-		<TextBox x:Name="ResultsOutput" HorizontalAlignment="Stretch" Margin="10,10,10,40" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True"/>
-		<Button x:Name="NewProjectBtn" Content="New project" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Padding="3,1,3,1" Click="NewProjectBtn_Click"/>
+	<Grid>
+		<TextBox x:Name="ResultsOutput" HorizontalAlignment="Stretch" Margin="10,10,10,35" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+			<Button x:Name="BackBtn" Content="Back" Margin="10,0,0,5" VerticalAlignment="Bottom" Padding="3,1,3,1" Click="BackBtn_Click" />
+			<Button x:Name="NewProjectBtn" Content="New project" Margin="5,0,0,5" VerticalAlignment="Bottom" Padding="3,1,3,1" Click="NewProjectBtn_Click"/>
+		</StackPanel>
 
 	</Grid>
 </Page>

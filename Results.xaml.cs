@@ -19,10 +19,12 @@ namespace dotnet_new_GUI
 	/// </summary>
 	public partial class Results : Page
 	{
-		public Results(string dotnetArgs)
+		Page BackPage;
+		public Results(string dotnetArgs, Page backPage)
 		{
 			InitializeComponent();
 
+			BackPage = backPage;
 			ProcessStartInfo psi = new ProcessStartInfo("dotnet", dotnetArgs);
 			psi.RedirectStandardOutput = true;
 			psi.RedirectStandardError = true;
@@ -38,9 +40,17 @@ namespace dotnet_new_GUI
 
 		private void NewProjectBtn_Click(object sender, RoutedEventArgs e)
 		{
-			if (Parent is MainWindow mw)
+			if (Parent is Window mw)
 			{
 				mw.Content = new TemplateList();
+			}
+		}
+
+		private void BackBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (Parent is Window mw)
+			{
+				mw.Content = BackPage;
 			}
 		}
 	}

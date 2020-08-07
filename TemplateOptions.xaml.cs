@@ -158,7 +158,7 @@ namespace dotnet_new_GUI
 			}
 			if (runNow && Parent is MainWindow mw)
 			{
-				mw.Content = new Results(GenerateCommand());
+				mw.Content = new Results(GenerateCommand(), this);
 			}
 		}
 	}
