@@ -34,7 +34,15 @@ namespace dotnet_new_GUI
 			psi.CreateNoWindow = true;
 			Process proc = new Process();
 			proc.StartInfo = psi;
-			proc.Start();
+			try
+			{
+				proc.Start();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Unable to run dotnet command line. The .NET SDK might not be installed.");
+				throw;
+			}
 			var oReader = proc.StandardOutput;
 			var firstLine = oReader.ReadLine();
 			var secondLine = oReader.ReadLine();
